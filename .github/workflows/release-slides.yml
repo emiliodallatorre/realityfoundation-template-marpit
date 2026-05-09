@@ -16,10 +16,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build PDF (Docker / compile.sh)
+      - name: Build PDF (Docker)
         run: |
-          chmod +x ./compile.sh
-          ./compile.sh
+          rm -f TEMPLATE.pdf
+          docker run --rm --init \
+            --user 0:0 \
+            -v "$PWD:/home/marp/app/" \
+            -e "LANG=C.UTF-8" \
+            marpteam/marp-cli \
+            TEMPLATE.md \
+            --pdf \
+            --output /home/marp/app/TEMPLATE.pdf \
+            --theme-set ./realityfoundation-bright.css \
+            --allow-local-files
 
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v2
