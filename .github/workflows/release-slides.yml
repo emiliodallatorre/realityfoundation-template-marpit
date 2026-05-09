@@ -18,15 +18,17 @@ jobs:
 
       - name: Build PDF (Docker)
         run: |
+          [ -f TEMPLATE.pdf ] && chmod u+w TEMPLATE.pdf || true
           rm -f TEMPLATE.pdf
           docker run --rm --init \
-            --user 0:0 \
+            --user "$(id -u):$(id -g)" \
             -v "$PWD:/home/marp/app/" \
+            -w /home/marp/app \
             -e "LANG=C.UTF-8" \
             marpteam/marp-cli \
             TEMPLATE.md \
             --pdf \
-            --output TEMPLATE.pdf \
+            --output /home/marp/app/TEMPLATE.pdf \
             --theme-set ./realityfoundation-bright.css \
             --allow-local-files
 
