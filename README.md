@@ -5,6 +5,10 @@ This repository contains the **official Marp theme** for RealityFoundation:
 - `realityfoundation-bright.css` → official theme
 - `TEMPLATE.md` → lorem ipsum example deck (reference only)
 
+Download the latest rendered template:
+
+- [TEMPLATE.pdf](https://github.com/emiliodallatorre/realitycheck-template-marpit/releases/download/main-latest/TEMPLATE.pdf)
+
 ## How to use the theme
 
 In your slide file frontmatter:
