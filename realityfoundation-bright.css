@@ -9,7 +9,7 @@
   --color-secondary: #434343;
   --color-button-text: #333333;
   --color-light-grey: #f5f5f5;
-  --font-scale: 6;
+  --font-scale: 12;
   --font-size-base: calc(1rem * var(--font-scale));
   --font-size-chrome-top: calc(var(--font-size-base) * 0.56);
   --font-size-chrome-bottom: calc(var(--font-size-base) * 0.52);
@@ -78,25 +78,7 @@ strong {
 
 section.lead {
   text-align: center;
-  background:
-    radial-gradient(circle at 50% 35%, rgba(39, 255, 11, 0.2), transparent 52%),
-    linear-gradient(130deg, rgba(39, 255, 11, 0.1), rgba(255, 255, 255, 0) 42%),
-    repeating-linear-gradient(0deg,
-      rgba(0, 0, 0, 0.02),
-      rgba(0, 0, 0, 0.02) 1px,
-      transparent 1px,
-      transparent 6px),
-    var(--color-background);
-}
-
-/* Cleaner PDF output: avoid thin repeating lines that can alias/compress poorly. */
-@media print {
-  section.lead {
-    background:
-      radial-gradient(circle at 50% 35%, rgba(39, 255, 11, 0.16), transparent 56%),
-      linear-gradient(130deg, rgba(39, 255, 11, 0.06), rgba(255, 255, 255, 0) 45%),
-      var(--color-background);
-  }
+  background: var(--color-background);
 }
 
 section.lead h1 {

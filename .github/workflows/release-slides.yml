@@ -16,21 +16,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build PDF (Docker)
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Marp CLI
+        run: npm install -g @marp-team/marp-cli
+
+      - name: Build PDF
         run: |
-          [ -f TEMPLATE.pdf ] && chmod u+w TEMPLATE.pdf || true
           rm -f TEMPLATE.pdf
-          docker run --rm --init \
-            --user "$(id -u):$(id -g)" \
-            -v "$PWD:/home/marp/app/" \
-            -w /home/marp/app \
-            -e "LANG=C.UTF-8" \
-            marpteam/marp-cli \
-            TEMPLATE.md \
-            --pdf \
-            --output /home/marp/app/TEMPLATE.pdf \
-            --theme-set ./realityfoundation-bright.css \
-            --allow-local-files
+          marp TEMPLATE.md --pdf --output TEMPLATE.pdf --theme-set ./realityfoundation-bright.css --allow-local-files
 
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v2
