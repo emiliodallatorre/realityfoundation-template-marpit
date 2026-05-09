@@ -198,3 +198,51 @@ table th {
   margin-bottom: 0;
   margin-top: 8px;
 }
+
+pre {
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  background: #fafafa;
+  padding: 16px;
+  overflow: auto;
+}
+
+code {
+  font-family: "IBM Plex Mono", "JetBrains Mono", "Fira Code", Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+pre code {
+  font-size: 0.82em;
+  line-height: 1.45;
+}
+
+.split-30-70 {
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  gap: 18px;
+}
+
+.split-70-30 {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  gap: 18px;
+}
+
+.three-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.step {
+  border: 1px dashed #cfcfcf;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 10px;
+}

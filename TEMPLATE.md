@@ -116,6 +116,90 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 
 ---
 
+## Code block layout
+
+```ts
+type Evidence = {
+  source: string;
+  capturedAt: string;
+  signature: string;
+};
+
+export function verify(evidence: Evidence): boolean {
+  return evidence.signature.length > 0 && evidence.source.length > 0;
+}
+```
+
+<p class="muted">Use for architecture snippets, API examples, and implementation notes.</p>
+
+---
+
+## Split 30 / 70 layout
+
+<div class="split-30-70">
+  <div>
+    <h3>Summary</h3>
+    <p class="muted">Short framing or takeaways.</p>
+  </div>
+  <div>
+    <h3>Main content</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+</div>
+
+---
+
+## Split 70 / 30 layout
+
+<div class="split-70-30">
+  <div>
+    <h3>Primary narrative</h3>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.</p>
+  </div>
+  <div>
+    <h3>Side notes</h3>
+    <ul>
+      <li>Key metric</li>
+      <li>Constraint</li>
+      <li>Decision</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+## Three-column comparison
+
+<div class="three-cols">
+  <div class="card">
+    <h3>Option A</h3>
+    <p>Lorem ipsum dolor sit amet.</p>
+  </div>
+  <div class="card">
+    <h3>Option B</h3>
+    <p>Consectetur adipiscing elit sed do.</p>
+  </div>
+  <div class="card">
+    <h3>Option C</h3>
+    <p>Ut enim ad minim veniam quis.</p>
+  </div>
+</div>
+
+---
+
+## Process / steps layout
+
+<div class="steps">
+  <div class="step"><strong>1</strong><p>Discover</p></div>
+  <div class="step"><strong>2</strong><p>Design</p></div>
+  <div class="step"><strong>3</strong><p>Build</p></div>
+  <div class="step"><strong>4</strong><p>Validate</p></div>
+</div>
+
+---
+
 <!-- _class: lead -->
 
 ## Closing slide layout
