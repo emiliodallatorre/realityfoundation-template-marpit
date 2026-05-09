@@ -1,0 +1,31 @@
+name: Build and Release Slides
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build PDF (Docker / compile.sh)
+        run: |
+          chmod +x ./compile.sh
+          ./compile.sh
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: main-latest
+          name: Slides (main latest)
+          body: Automated build from main.
+          files: TEMPLATE.pdf
+          overwrite_files: true
