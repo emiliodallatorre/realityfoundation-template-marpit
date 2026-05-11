@@ -17,6 +17,8 @@
   --font-size-muted: calc(var(--font-size-base) * 1.18);
   --font-size-kpi: calc(var(--font-size-base) * 2.5);
   --chrome-top-spacing: 26px;
+  --font-size-chrome-lead: calc(var(--font-size-chrome-top) * 1.45);
+  --font-size-metric: calc(var(--font-size-kpi) * 1.35);
 }
 
 section {
@@ -98,6 +100,11 @@ section.lead {
   background: var(--color-background);
 }
 
+section.lead::before {
+  color: var(--color-primary);
+  font-size: var(--font-size-chrome-lead);
+}
+
 section.lead h1 {
   font-size: var(--font-size-lead-title);
   margin-top: 0.2em;
@@ -143,20 +150,29 @@ table th {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  margin-bottom: 0.5em;
 }
 
 .card {
   border: 1px solid #d8d8d8;
   border-radius: 10px;
   background: #ffffff;
-  padding: 16px;
-  margin-bottom: 16px;
+  padding: 10px 12px;
+}
+
+.card h3 {
+  margin: 0 0 0.16em;
+}
+
+.card p {
+  margin: 0.18em 0 0;
 }
 
 .kpis {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
+  margin-bottom: 0.75em;
 }
 
 .kpi {
@@ -167,10 +183,12 @@ table th {
   text-align: center;
 }
 
-.kpi h3 {
+.kpi h3,
+.step strong {
   margin: 0;
+  display: block;
   color: var(--color-primary);
-  font-size: var(--font-size-kpi);
+  font-size: var(--font-size-metric);
 }
 
 .img-cols {
