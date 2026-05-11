@@ -3,11 +3,11 @@
 @import "default";
 
 :root {
-  --color-primary: #27ff0b;
+  --color-primary: #d90368ff;
   --color-background: #fefefe;
-  --color-foreground: #000000;
-  --color-secondary: #434343;
-  --color-button-text: #333333;
+  --color-foreground: #2f2f2fff;
+  --color-secondary: #2f2f2fff;
+  --color-button-text: #2f2f2fff;
   --color-light-grey: #f5f5f5;
   --font-scale: 12;
   --font-size-base: calc(1rem * var(--font-scale));
@@ -16,12 +16,17 @@
   --font-size-lead-title: calc(var(--font-size-base) * 4);
   --font-size-muted: calc(var(--font-size-base) * 1.18);
   --font-size-kpi: calc(var(--font-size-base) * 2.5);
+  --chrome-top-spacing: 26px;
 }
 
 section {
   font-family: "IBM Plex Mono", "JetBrains Mono", "Fira Code", Menlo, Monaco, Consolas, "Courier New", monospace;
   color: var(--color-foreground);
   background: var(--color-background);
+  background-image: url("assets/logo.png");
+  background-position: top var(--chrome-top-spacing) right 74px;
+  background-size: 32px 32px;
+  background-repeat: no-repeat;
   font-size: var(--font-size-base);
   padding: 64px 74px;
   line-height: 1.6;
@@ -33,7 +38,7 @@ section {
 section::before {
   content: "REALITYFOUNDATION";
   position: absolute;
-  top: 26px;
+  top: var(--chrome-top-spacing);
   left: 74px;
   font-size: var(--font-size-chrome-top);
   letter-spacing: 0.16em;
@@ -43,10 +48,22 @@ section::before {
 section::after {
   content: "realityfoundation.eu";
   position: absolute;
-  right: 74px;
+  left: 74px;
   bottom: 24px;
   font-size: var(--font-size-chrome-bottom);
-  color: #2f2f2f;
+  color: var(--color-primary);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+section a.rf-footer {
+  position: absolute;
+  left: 74px;
+  bottom: 24px;
+  font-size: var(--font-size-chrome-bottom);
+  color: var(--color-primary);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 h1,
@@ -64,7 +81,7 @@ h1 {
 
 h2,
 h3 {
-  color: #121212;
+  color: #2f2f2fff;
 }
 
 p,
@@ -102,11 +119,11 @@ blockquote {
   margin: 1em 0 0;
   padding: 0.35em 1em;
   color: var(--color-foreground);
-  background: rgba(39, 255, 11, 0.12);
+  background: rgba(217, 3, 104, 0.12);
 }
 
 table th {
-  background: rgba(39, 255, 11, 0.18);
+  background: rgba(217, 3, 104, 0.18);
   color: var(--color-button-text);
 }
 
@@ -132,7 +149,8 @@ table th {
   border: 1px solid #d8d8d8;
   border-radius: 10px;
   background: #ffffff;
-  padding: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
 }
 
 .kpis {
