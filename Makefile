@@ -7,6 +7,7 @@ pdf:
 	docker run --rm --init \
 		-v "$$PWD:/home/marp/app/" \
 		-e "LANG=$${LANG:-C.UTF-8}" \
+		-e MARP_USER="$$(id -u):$$(id -g)" \
 		marpteam/marp-cli \
 		TEMPLATE.md \
 		--pdf \

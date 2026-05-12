@@ -2,6 +2,7 @@
 marp: true
 theme: realityfoundation-bright
 paginate: true
+footer: '[realityfoundation.eu](https://realityfoundation.eu)'
 size: 16:9
 ---
 
