@@ -1,12 +1,13 @@
-.PHONY: all pdf clean
+.PHONY: all build pdf pptx clean
 
 SRC ?= TEMPLATE.md
-OUT ?= $(patsubst %.md,%.pdf,$(SRC))
+FORMAT ?= pdf
+OUT ?= $(patsubst %.md,%.$(FORMAT),$(SRC))
 THEME ?= ./realityfoundation-bright.css
 
 all: pdf
 
-pdf:
+build:
 	rm -f "$(OUT)"
 	docker run --rm --init \
 		-v "$$PWD:/home/marp/app/" \
@@ -14,10 +15,16 @@ pdf:
 		-e MARP_USER="$$(id -u):$$(id -g)" \
 		marpteam/marp-cli \
 		"$(SRC)" \
-		--pdf \
+		--$(FORMAT) \
 		--output "$(OUT)" \
 		--theme-set "$(THEME)" \
 		--allow-local-files
 
+pdf: FORMAT=pdf
+pdf: build
+
+pptx: FORMAT=pptx
+pptx: build
+
 clean:
-	rm -f "$(OUT)"
+	rm -f "$(patsubst %.md,%.pdf,$(SRC))" "$(patsubst %.md,%.pptx,$(SRC))"
